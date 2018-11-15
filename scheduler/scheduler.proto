@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package chaoshub.schedule;
+
+message Schedule {
+    string schedule_id = 1;
+    string user_id = 2;
+    string org_id = 3;
+    string workspace_id = 4;
+    string experiment_id = 5;
+    string token_id = 6;
+    string token = 7;
+    string scheduled = 8;
+    string experiment = 9;
+    int32 interval = 10;
+    int32 repeat = 11;
+    string cron = 12;
+    string settings = 13;
+    string configuration = 14;
+    string secrets = 15;
+}
+
+message ScheduleRequest {
+    Schedule schedule = 1;
+}
+
+message ScheduleReply {
+    string job_id = 1;
+}
+
+message CancelRequest {
+    string job_id = 1;
+}
+
+message CancelReply {
+}
+
+service SchedulerService {
+  rpc Schedule(ScheduleRequest) returns (ScheduleReply);
+  rpc Cancel(CancelRequest) returns (CancelReply);
+}

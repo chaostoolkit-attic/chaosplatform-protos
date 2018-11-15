@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package chaoshub.user;
+
+message User {
+    string id = 1;
+    string username = 2;
+}
+
+message CreateRequest {
+    string username = 1;
+}
+
+message CreateReply {
+    User user = 2;
+}
+
+message DeleteRequest {
+    string id = 1;
+}
+
+message DeleteReply {
+}
+
+service UserService {
+  rpc Create(CreateRequest) returns (CreateReply);
+  rpc Delete(DeleteRequest) returns (DeleteReply);
+}

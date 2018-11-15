@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+package chaoshub.workspace;
+
+message User {
+    string id = 1;
+    string name = 2;
+}
+
+message Workspace {
+    string id = 1;
+    string name = 2;
+}
+
+message CreateRequest {
+    string name = 1;
+}
+
+message CreateReply {
+    Workspace workspace = 2;
+}
+
+message TerminateRequest {
+    Workspace workspace = 1;
+}
+
+message TerminateReply {
+}
+
+message GetByUserRequest {
+    User user = 1;
+}
+
+message GetByUserReply {
+    repeated Workspace workspaces = 1;
+}
+
+service WorkspaceService {
+  rpc Create(CreateRequest) returns (CreateReply);
+  rpc Delete(TerminateRequest) returns (TerminateReply);
+  rpc ByUser(GetByUserRequest) returns (GetByUserReply);
+}
+
+message SaveRequest {
+    Workspace workspace = 1;
+}
+
+message SaveReply {
+}
+
+message RemoveRequest {
+    Workspace workspace = 1;
+}
+
+message RemoveReply {
+}
+
+/* Storage service */
+service WorkspaceStorageService {
+    rpc Save(SaveRequest) returns (SaveReply);
+    rpc Remove(RemoveRequest) returns (RemoveReply);
+}

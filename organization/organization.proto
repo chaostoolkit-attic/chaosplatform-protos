@@ -1,0 +1,84 @@
+syntax = "proto3";
+
+package chaoshub.organization;
+
+message User {
+    string id = 1;
+    string name = 2;
+}
+
+message Organization {
+    string id = 1;
+    string name = 2;
+    string user_id = 3;
+}
+
+message CreateRequest {
+    string name = 1;
+    string user_id = 2;
+}
+
+message CreateReply {
+    Organization organization = 2;
+}
+
+message TerminateRequest {
+    Organization organization = 1;
+}
+
+message TerminateReply {
+}
+
+message GetByUserRequest {
+    User user = 1;
+}
+
+message GetByUserReply {
+    repeated Organization organizations = 1;
+}
+
+service OrganizationService {
+  rpc Create(CreateRequest) returns (CreateReply);
+  rpc Delete(TerminateRequest) returns (TerminateReply);
+  rpc ByUser(GetByUserRequest) returns (GetByUserReply);
+}
+
+message SaveRequest {
+  string name = 1;
+  string user_id = 2;
+}
+
+message SaveReply {
+  string id = 1;
+}
+
+message RemoveRequest {
+    Organization organization = 1;
+}
+
+message RemoveReply {
+}
+
+message LoadRequest {
+    string id = 1;
+}
+
+message LoadReply {
+    Organization organization = 1;
+}
+
+message LoadManyRequest {
+    repeated string ids = 1;
+}
+
+message LoadManyReply {
+    repeated Organization organization = 1;
+}
+
+/* Storage service */
+service OrganizationStorageService {
+  rpc Save(SaveRequest) returns (SaveReply);
+  rpc Remove(RemoveRequest) returns (RemoveReply);
+  rpc Load(LoadRequest) returns (LoadReply);
+  rpc LoadMany(LoadManyRequest) returns (LoadManyReply);
+}

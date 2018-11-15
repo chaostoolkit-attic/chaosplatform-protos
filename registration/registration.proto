@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+package chaoshub.registration;
+
+message Registration {
+    string id = 1;
+    string username = 2;
+    string name = 3;
+    string email = 4;
+    bool is_authenticated = 5;
+    bool is_active = 6;
+    bool is_anonymous = 7;
+}
+
+message CreateRequest {
+    string username = 1;
+    string name = 2;
+    string email = 3;
+}
+
+message CreateReply {
+    Registration registration = 1;
+}
+
+message DeleteRequest {
+    string id = 1;
+}
+
+message DeleteReply {
+}
+
+message GetByIdRequest {
+    string id = 1;
+}
+
+message GetByIdReply {
+    Registration registration = 1;
+}
+
+service RegistrationService {
+  rpc Create(CreateRequest) returns (CreateReply);
+  rpc Delete(DeleteRequest) returns (DeleteReply);
+  rpc GetById(GetByIdRequest) returns (GetByIdReply);
+}
