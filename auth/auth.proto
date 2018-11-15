@@ -30,27 +30,3 @@ service AuthService {
     rpc Create(CreateRequest) returns (CreateReply);
     rpc Delete(DeleteRequest) returns (DeleteReply);
 }
-
-message SaveRequest {
-    string user_id = 1;
-    string name = 2;
-    string access_token = 3;
-    string refresh_token = 4;
-}
-
-message SaveReply {
-    string id = 1;
-}
-
-message RemoveRequest {
-    string id = 1;
-}
-
-message RemoveReply {
-}
-
-service AuthStorageService {
-    // Save a new access/refresh token pair.
-    rpc Save(SaveRequest) returns (SaveReply);
-    rpc Remove(RemoveRequest) returns (RemoveReply);
-}

@@ -40,23 +40,3 @@ service WorkspaceService {
   rpc Delete(TerminateRequest) returns (TerminateReply);
   rpc ByUser(GetByUserRequest) returns (GetByUserReply);
 }
-
-message SaveRequest {
-    Workspace workspace = 1;
-}
-
-message SaveReply {
-}
-
-message RemoveRequest {
-    Workspace workspace = 1;
-}
-
-message RemoveReply {
-}
-
-/* Storage service */
-service WorkspaceStorageService {
-    rpc Save(SaveRequest) returns (SaveReply);
-    rpc Remove(RemoveRequest) returns (RemoveReply);
-}
