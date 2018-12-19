@@ -20,15 +20,15 @@ message CreateReply {
     Workspace workspace = 2;
 }
 
-message TerminateRequest {
+message DeleteRequest {
     Workspace workspace = 1;
 }
 
-message TerminateReply {
+message DeleteReply {
 }
 
 message GetByUserRequest {
-    User user = 1;
+    string user_id = 1;
 }
 
 message GetByUserReply {
@@ -37,6 +37,6 @@ message GetByUserReply {
 
 service WorkspaceService {
   rpc Create(CreateRequest) returns (CreateReply);
-  rpc Delete(TerminateRequest) returns (TerminateReply);
+  rpc Delete(DeleteRequest) returns (DeleteReply);
   rpc ByUser(GetByUserRequest) returns (GetByUserReply);
 }

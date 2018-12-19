@@ -23,14 +23,14 @@ message CreateReply {
 }
 
 message DeleteRequest {
-    Organization organization = 1;
+    string id = 1;
 }
 
 message DeleteReply {
 }
 
 message GetByUserRequest {
-    User user = 1;
+    string user_id = 1;
 }
 
 message GetByUserReply {
