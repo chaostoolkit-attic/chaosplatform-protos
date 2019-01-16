@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package chaoshub.auth;
+package chaosplatform.auth;
 
 message AccessToken {
     string id = 1;

@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package chaoshub.user;
+package chaosplatform.user;
 
 message User {
     string id = 1;

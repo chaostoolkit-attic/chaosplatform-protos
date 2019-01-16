@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package chaoshub.schedule;
+package chaosplatform.schedule;
 
 message Schedule {
     string schedule_id = 1;
