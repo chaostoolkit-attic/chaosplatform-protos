@@ -46,12 +46,12 @@ message GetByUserReply {
     repeated AccessToken tokens = 1;
 }
 
-message GetByUserNameRequest {
+message GetByNameRequest {
     string user_id = 1;
     string name = 2;
 }
 
-message GetByUserNameReply {
+message GetByNameReply {
     AccessToken token = 1;
 }
 
@@ -59,6 +59,6 @@ service AuthService {
     rpc Create(CreateRequest) returns (CreateReply);
     rpc Delete(DeleteRequest) returns (DeleteReply);
     rpc Get(GetRequest) returns (GetReply);
-    rpc GetByName(GetByUserNameRequest) returns (GetByUserNameReply);
+    rpc GetByName(GetByNameRequest) returns (GetByNameReply);
     rpc GetByUser(GetByUserRequest) returns (GetByUserReply);
 }
