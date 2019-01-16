@@ -30,6 +30,14 @@ message DeleteRequest {
 message DeleteReply {
 }
 
+message RevokeRequest {
+    string id = 1;
+    string user_id = 2;
+}
+
+message RevokeReply {
+}
+
 message GetRequest {
     string id = 1;
 }
@@ -58,6 +66,7 @@ message GetByNameReply {
 service AuthService {
     rpc Create(CreateRequest) returns (CreateReply);
     rpc Delete(DeleteRequest) returns (DeleteReply);
+    rpc Revoke(RevokeRequest) returns (RevokeReply);
     rpc Get(GetRequest) returns (GetReply);
     rpc GetByName(GetByNameRequest) returns (GetByNameReply);
     rpc GetByUser(GetByUserRequest) returns (GetByUserReply);
