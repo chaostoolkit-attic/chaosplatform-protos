@@ -63,6 +63,15 @@ message GetByNameReply {
     AccessToken token = 1;
 }
 
+message GetByJtiRequest {
+    string user_id = 1;
+    string jti = 2;
+}
+
+message GetByJtiReply {
+    AccessToken token = 1;
+}
+
 service AuthService {
     rpc Create(CreateRequest) returns (CreateReply);
     rpc Delete(DeleteRequest) returns (DeleteReply);
@@ -70,4 +79,5 @@ service AuthService {
     rpc Get(GetRequest) returns (GetReply);
     rpc GetByName(GetByNameRequest) returns (GetByNameReply);
     rpc GetByUser(GetByUserRequest) returns (GetByUserReply);
+    rpc GetByJti(GetByJtiRequest) returns (GetByJtiReply);
 }
