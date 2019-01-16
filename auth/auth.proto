@@ -8,6 +8,9 @@ message AccessToken {
     string name = 3;
     string access_token = 4;
     string refresh_token = 5;
+    bool revoked = 6;
+    string issued_on = 7;
+    string last_used_on = 8;
 }
 
 message CreateRequest {
@@ -21,12 +24,41 @@ message CreateReply {
 
 message DeleteRequest {
     string id = 1;
+    string user_id = 2;
 }
 
 message DeleteReply {
 }
 
+message GetRequest {
+    string id = 1;
+}
+
+message GetReply {
+    AccessToken token = 1;
+}
+
+message GetByUserRequest {
+    string user_id = 1;
+}
+
+message GetByUserReply {
+    repeated AccessToken tokens = 1;
+}
+
+message GetByUserNameRequest {
+    string user_id = 1;
+    string name = 2;
+}
+
+message GetByUserNameReply {
+    AccessToken token = 1;
+}
+
 service AuthService {
     rpc Create(CreateRequest) returns (CreateReply);
     rpc Delete(DeleteRequest) returns (DeleteReply);
+    rpc Get(GetRequest) returns (GetReply);
+    rpc GetByName(GetByUserNameRequest) returns (GetByUserNameReply);
+    rpc GetByUser(GetByUserRequest) returns (GetByUserReply);
 }
