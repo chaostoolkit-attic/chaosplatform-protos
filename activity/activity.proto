@@ -1,0 +1,73 @@
+syntax = "proto3";
+
+package chaosplatform.activity;
+
+message Activity {
+    string id = 1;
+    string user_id = 2;
+    string org_id = 3;
+    string workspace_id = 4;
+    string experiment_id = 5;
+    string execution_id = 6;
+    Timestamp timestamp = 7;
+    string kind = 8;
+    string visibility = 9;
+    string title = 10;
+    string description = 11;
+    Any payload = 12;
+}
+
+message RecordRequest {
+    string user_id = 1;
+    string org_id = 2;
+    string workspace_id = 3;
+    string experiment_id = 4;
+    string execution_id = 5;
+    Timestamp timestamp = 6;
+    string kind = 7;
+    string visibility = 8;
+    string title = 9;
+    string description = 10;
+    Any payload = 11;
+}
+
+message RecordReply {
+    string id = 1;
+}
+
+message GetByUserRequest {
+    string user_id = 1;
+    uint64 limit = 2;
+    uint64 offset = 3;
+}
+
+message GetByUserReply {
+    repeated Activity activities = 1;
+}
+
+message GetByOrgRequest {
+    string org_id = 1;
+    uint64 limit = 2;
+    uint64 offset = 3;
+}
+
+message GetByOrgReply {
+    repeated Activity activities = 1;
+}
+
+message GetByWorkspaceRequest {
+    string workspace_id = 1;
+    uint64 limit = 2;
+    uint64 offset = 3;
+}
+
+message GetByWorkspaceReply {
+    repeated Activity activities = 1;
+}
+
+service ActivityService {
+    rpc Record(RecordRequest) returns (RecordReply);
+    rpc GetByUser(GetByUserRequest) returns (GetByUserReply);
+    rpc GetByOrg(GetByOrgRequest) returns (GetByOrgReply);
+    rpc GetByWorkspace(GetByWorkspaceRequest) returns (GetByWorkspaceReply);
+}
