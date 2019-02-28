@@ -12,9 +12,9 @@ message Experiment {
     string description = 6;
     repeated string tags = 7;
     google.protobuf.Timestamp created_on = 8;
-    google.protobuf.Timestamp updated_on = 8;
-    repeated string execution_ids = 9;
-    string payload = 10;
+    google.protobuf.Timestamp updated_on = 9;
+    repeated string execution_ids = 10;
+    string payload = 11;
 }
 
 message GetRequest {
