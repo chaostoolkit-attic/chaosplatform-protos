@@ -1,6 +1,7 @@
 syntax = "proto3";
 
 package chaosplatform.workspace;
+import "google/protobuf/any.proto";
 import "google/protobuf/timestamp.proto";
 
 message Collaborator {
@@ -16,11 +17,14 @@ message Workspace {
     string org_name = 4;
     string kind = 5;
     google.protobuf.Timestamp created_on = 6;
-    repeated Collaborator collaborators = 7;
+    repeated Collaborator collaborators = 8;
+    google.protobuf.Any settings = 9;
 }
 
 message CreateRequest {
     string name = 1;
+    string user_id = 2;
+    string org_id = 3;
 }
 
 message CreateReply {
