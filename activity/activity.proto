@@ -1,38 +1,36 @@
 syntax = "proto3";
 
 package chaosplatform.activity;
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
 
 message Activity {
     string id = 1;
-    string authenticated_user_id = 2;
-    string access_token_id = 3;
-    string user_id = 4;
-    string org_id = 5;
-    string workspace_id = 6;
-    string experiment_id = 7;
-    string execution_id = 8;
-    Timestamp timestamp = 9;
-    string kind = 10;
-    string visibility = 11;
-    string title = 12;
-    string description = 13;
-    Any payload = 14;
+    string user_id = 2;
+    string org_id = 3;
+    string workspace_id = 4;
+    string experiment_id = 5;
+    string execution_id = 6;
+    google.protobuf.Timestamp timestamp = 7;
+    string kind = 8;
+    string visibility = 9;
+    string title = 10;
+    string description = 11;
+    google.protobuf.Any payload = 12;
 }
 
 message RecordRequest {
-    string authenticated_user_id = 1;
-    string access_token_id = 2;
-    string user_id = 3;
-    string org_id = 4;
-    string workspace_id = 5;
-    string experiment_id = 6;
-    string execution_id = 7;
-    Timestamp timestamp = 8;
-    string kind = 9;
-    string visibility = 10;
-    string title = 11;
-    string description = 12;
-    Any payload = 13;
+    string user_id = 1;
+    string org_id = 2;
+    string workspace_id = 3;
+    string experiment_id = 4;
+    string execution_id = 5;
+    google.protobuf.Timestamp timestamp = 6;
+    string kind = 7;
+    string visibility = 8;
+    string title = 9;
+    string description = 10;
+    google.protobuf.Any payload = 11;
 }
 
 message RecordReply {
