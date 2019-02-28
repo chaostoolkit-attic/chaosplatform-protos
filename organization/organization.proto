@@ -29,6 +29,22 @@ message DeleteRequest {
 message DeleteReply {
 }
 
+message GetRequest {
+    string id = 1;
+}
+
+message GetReply {
+    Organization organization = 1;
+}
+
+message GetManyRequest {
+    repeated string id = 1;
+}
+
+message GetManyReply {
+    repeated Organization organizations = 1;
+}
+
 message GetByUserRequest {
     string user_id = 1;
 }
@@ -39,6 +55,8 @@ message GetByUserReply {
 
 service OrganizationService {
   rpc Create(CreateRequest) returns (CreateReply);
+  rpc Get(GetRequest) returns (GetReply);
+  rpc GetMany(GetManyRequest) returns (GetManyReply);
   rpc Delete(DeleteRequest) returns (DeleteReply);
   rpc ByUser(GetByUserRequest) returns (GetByUserReply);
 }

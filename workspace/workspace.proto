@@ -21,10 +21,26 @@ message CreateReply {
 }
 
 message DeleteRequest {
-    Workspace workspace = 1;
+    string id = 1;
 }
 
 message DeleteReply {
+}
+
+message GetRequest {
+    string id = 1;
+}
+
+message GetReply {
+    Workspace workspace = 1;
+}
+
+message GetManyRequest {
+    repeated string id = 1;
+}
+
+message GetManyReply {
+    repeated Workspace workspaces = 1;
 }
 
 message GetByUserRequest {
@@ -37,6 +53,8 @@ message GetByUserReply {
 
 service WorkspaceService {
   rpc Create(CreateRequest) returns (CreateReply);
+  rpc Get(GetRequest) returns (GetReply);
+  rpc GetMany(GetManyRequest) returns (GetManyReply);
   rpc Delete(DeleteRequest) returns (DeleteReply);
   rpc ByUser(GetByUserRequest) returns (GetByUserReply);
 }

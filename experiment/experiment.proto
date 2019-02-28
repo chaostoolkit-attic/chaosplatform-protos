@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package chaosplatform.experiment;
+
+message Experiment {
+    string id = 1;
+    string org_id = 2;
+    string workspace_id = 3;
+    string title = 4;
+    string description = 5;
+    repeated string tags = 6;
+    repeated string executions = 7;
+}
+
+message GetRequest {
+    string id = 1;
+}
+
+message GetReply {
+    Experiment experiment = 1;
+}
+
+message GetManyRequest {
+    repeated string id = 1;
+}
+
+message GetManyReply {
+    repeated Experiment experiments = 1;
+}
+
+service OrganizationService {
+  rpc Get(GetRequest) returns (GetReply);
+  rpc GetMany(GetManyRequest) returns (GetManyReply);
+}
