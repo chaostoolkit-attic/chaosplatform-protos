@@ -1,19 +1,25 @@
 syntax = "proto3";
 
 package chaosplatform.experiment;
+import "google/protobuf/timestamp.proto";
 
 message Experiment {
     string id = 1;
-    string org_id = 2;
-    string workspace_id = 3;
-    string title = 4;
-    string description = 5;
-    repeated string tags = 6;
-    repeated string executions = 7;
+    string user_id = 2;
+    string org_id = 3;
+    string workspace_id = 4;
+    string title = 5;
+    string description = 6;
+    repeated string tags = 7;
+    google.protobuf.Timestamp created_on = 8;
+    google.protobuf.Timestamp updated_on = 8;
+    repeated string execution_ids = 9;
+    string payload = 10;
 }
 
 message GetRequest {
     string id = 1;
+    bool with_payload = 2;
 }
 
 message GetReply {
@@ -22,6 +28,7 @@ message GetReply {
 
 message GetManyRequest {
     repeated string ids = 1;
+    bool with_payload = 2;
 }
 
 message GetManyReply {

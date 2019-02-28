@@ -1,16 +1,21 @@
 syntax = "proto3";
 
 package chaosplatform.organization;
+import "google/protobuf/timestamp.proto";
 
-message User {
+message Member {
     string id = 1;
-    string name = 2;
+    string username = 2;
+    bool owner = 3;
 }
 
 message Organization {
     string id = 1;
     string name = 2;
-    string user_id = 3;
+    string kind = 3;
+    google.protobuf.Timestamp created_on = 4;
+    repeated string workspace_ids = 5;
+    repeated Member members = 6;
 }
 
 message CreateRequest {
