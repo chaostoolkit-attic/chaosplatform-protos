@@ -21,7 +21,7 @@ message GetRequest {
 }
 
 message GetReply {
-    Experiment experiment = 1;
+    Execution execution = 1;
 }
 
 message GetManyRequest {
@@ -30,7 +30,7 @@ message GetManyRequest {
 }
 
 message GetManyReply {
-    repeated Experiment experiments = 1;
+    repeated Execution executions = 1;
 }
 
 service ExecutionService {
