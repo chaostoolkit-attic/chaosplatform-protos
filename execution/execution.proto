@@ -11,8 +11,7 @@ message Execution {
     string workspace_id = 5;
     string status = 6;
     google.protobuf.Timestamp timestamp = 7;
-    repeated string execution_ids = 8;
-    string payload = 9;
+    string payload = 8;
 }
 
 message GetRequest {
