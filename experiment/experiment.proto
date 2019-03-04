@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package chaosplatform.experiment;
 import "google/protobuf/timestamp.proto";
-import "execution.proto";
+import "experiment/execution.proto";
 
 message Experiment {
     string id = 1;
