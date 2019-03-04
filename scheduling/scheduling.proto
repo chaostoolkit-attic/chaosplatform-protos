@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+package chaosplatform.experiment;
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+message Schedule {
+    string id = 1;
+    string user_id = 2;
+    string org_id = 3;
+    string workspace_id = 4;
+    string job_id = 5;
+    string token_id = 6;
+    uint32 status = 7;
+    float interval = 8;
+    google.protobuf.Timestamp scheduled = 9;
+    google.protobuf.Struct results = 10;
+    google.protobuf.Struct settings = 11;
+    google.protobuf.Struct configuration = 12;
+    google.protobuf.Struct secrets = 13;
+}
+
+message GetRequest {
+    string id = 1;
+    bool with_payload = 2;
+}
+
+message GetReply {
+    Schedule schedule = 1;
+}
+
+message GetManyRequest {
+    repeated string ids = 1;
+    bool with_payload = 2;
+}
+
+message GetManyReply {
+    repeated Schedule schedules = 1;
+}
+
+service ScheduleService {
+  rpc Get(GetRequest) returns (GetReply);
+  rpc GetMany(GetManyRequest) returns (GetManyReply);
+}
