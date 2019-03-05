@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package chaosplatform.experiment;
+package chaosplatform.scheduling;
 import "google/protobuf/struct.proto";
 import "google/protobuf/timestamp.proto";
 
