@@ -37,7 +37,7 @@ message GetByUserRequest {
 }
 
 message GetByUserReply {
-    repeated Experiment experiments = 1;
+    repeated Execution executions = 1;
 }
 
 message GetByOrgRequest {
@@ -45,7 +45,7 @@ message GetByOrgRequest {
 }
 
 message GetByOrgReply {
-    repeated Experiment experiments = 1;
+    repeated Execution executions = 1;
 }
 
 message GetByWorkspaceRequest {
@@ -53,7 +53,7 @@ message GetByWorkspaceRequest {
 }
 
 message GetByWorkspaceReply {
-    repeated Experiment experiments = 1;
+    repeated Execution executions = 1;
 }
 
 service ExecutionService {
