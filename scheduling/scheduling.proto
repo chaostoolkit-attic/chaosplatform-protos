@@ -65,7 +65,7 @@ message GetByWorkspaceReply {
     repeated Schedule schedules = 1;
 }
 
-service ScheduleService {
+service SchedulingService {
   rpc Get(GetRequest) returns (GetReply);
   rpc GetMany(GetManyRequest) returns (GetManyReply);
   rpc GetByUser(GetByUserRequest) returns (GetByUserReply);
