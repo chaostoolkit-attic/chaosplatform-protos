@@ -40,6 +40,7 @@ message GetManyReply {
 
 message GetByUserRequest {
     string user_id = 1;
+    bool with_payload = 2;
 }
 
 message GetByUserReply {
@@ -48,6 +49,7 @@ message GetByUserReply {
 
 message GetByOrgRequest {
     string org_id = 1;
+    bool with_payload = 2;
 }
 
 message GetByOrgReply {
@@ -56,6 +58,7 @@ message GetByOrgReply {
 
 message GetByWorkspaceRequest {
     string workspace_id = 1;
+    bool with_payload = 2;
 }
 
 message GetByWorkspaceReply {
