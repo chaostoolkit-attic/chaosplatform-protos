@@ -38,7 +38,34 @@ message GetManyReply {
     repeated Schedule schedules = 1;
 }
 
+message GetByUserRequest {
+    string user_id = 1;
+}
+
+message GetByUserReply {
+    repeated Schedule schedules = 1;
+}
+
+message GetByOrgRequest {
+    string org_id = 1;
+}
+
+message GetByOrgReply {
+    repeated Schedule schedules = 1;
+}
+
+message GetByWorkspaceRequest {
+    string workspace_id = 1;
+}
+
+message GetByWorkspaceReply {
+    repeated Schedule schedules = 1;
+}
+
 service ScheduleService {
   rpc Get(GetRequest) returns (GetReply);
   rpc GetMany(GetManyRequest) returns (GetManyReply);
+  rpc GetByUser(GetByUserRequest) returns (GetByUserReply);
+  rpc GetByOrg(GetByOrgRequest) returns (GetByOrgReply);
+  rpc GetByWorkspace(GetByWorkspaceRequest) returns (GetByWorkspaceReply);
 }

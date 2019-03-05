@@ -32,7 +32,34 @@ message GetManyReply {
     repeated Execution executions = 1;
 }
 
+message GetByUserRequest {
+    string user_id = 1;
+}
+
+message GetByUserReply {
+    repeated Experiment experiments = 1;
+}
+
+message GetByOrgRequest {
+    string org_id = 1;
+}
+
+message GetByOrgReply {
+    repeated Experiment experiments = 1;
+}
+
+message GetByWorkspaceRequest {
+    string workspace_id = 1;
+}
+
+message GetByWorkspaceReply {
+    repeated Experiment experiments = 1;
+}
+
 service ExecutionService {
   rpc Get(GetRequest) returns (GetReply);
   rpc GetMany(GetManyRequest) returns (GetManyReply);
+  rpc GetByUser(GetByUserRequest) returns (GetByUserReply);
+  rpc GetByOrg(GetByOrgRequest) returns (GetByOrgReply);
+  rpc GetByWorkspace(GetByWorkspaceRequest) returns (GetByWorkspaceReply);
 }
