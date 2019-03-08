@@ -65,10 +65,20 @@ message GetByWorkspaceReply {
     repeated Schedule schedules = 1;
 }
 
+message GetByExperimentRequest {
+    string experiment_id = 1;
+    bool with_payload = 2;
+}
+
+message GetByExperimentReply {
+    repeated Schedule schedules = 1;
+}
+
 service SchedulingService {
   rpc Get(GetRequest) returns (GetReply);
   rpc GetMany(GetManyRequest) returns (GetManyReply);
   rpc GetByUser(GetByUserRequest) returns (GetByUserReply);
   rpc GetByOrg(GetByOrgRequest) returns (GetByOrgReply);
   rpc GetByWorkspace(GetByWorkspaceRequest) returns (GetByWorkspaceReply);
+  rpc GetByExperiment(GetByExperimentRequest) returns (GetByExperimentReply);
 }
