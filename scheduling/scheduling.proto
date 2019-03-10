@@ -74,6 +74,15 @@ message GetByExperimentReply {
     repeated Schedule schedules = 1;
 }
 
+message GetByAccessTokenRequest {
+    string token_id = 1;
+    bool with_payload = 2;
+}
+
+message GetByAccessTokenReply {
+    Schedule schedule = 1;
+}
+
 service SchedulingService {
   rpc Get(GetRequest) returns (GetReply);
   rpc GetMany(GetManyRequest) returns (GetManyReply);
@@ -81,4 +90,5 @@ service SchedulingService {
   rpc GetByOrg(GetByOrgRequest) returns (GetByOrgReply);
   rpc GetByWorkspace(GetByWorkspaceRequest) returns (GetByWorkspaceReply);
   rpc GetByExperiment(GetByExperimentRequest) returns (GetByExperimentReply);
+  rpc GetByAccessToken(GetByAccessTokenRequest) returns (GetByAccessTokenReply);
 }
