@@ -11,7 +11,7 @@ message Schedule {
     string workspace_id = 4;
     string job_id = 5;
     string token_id = 6;
-    uint32 status = 7;
+    string status = 7;
     float interval = 8;
     google.protobuf.Timestamp scheduled = 9;
     google.protobuf.Struct results = 10;
