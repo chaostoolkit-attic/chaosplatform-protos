@@ -5,12 +5,15 @@ package chaosplatform.auth;
 message AccessToken {
     string id = 1;
     string user_id = 2;
-    string name = 3;
-    string access_token = 4;
-    string refresh_token = 5;
-    bool revoked = 6;
-    string issued_on = 7;
-    string last_used_on = 8;
+    string org_id = 3;
+    string workspace_id = 4;
+    bool is_personal = 5;
+    string name = 6;
+    string access_token = 7;
+    string refresh_token = 8;
+    bool revoked = 9;
+    string issued_on = 10;
+    string last_used_on = 11;
 }
 
 message CreateRequest {
@@ -54,6 +57,22 @@ message GetByUserReply {
     repeated AccessToken tokens = 1;
 }
 
+message GetByOrgRequest {
+    string org_id = 1;
+}
+
+message GetByOrgReply {
+    repeated AccessToken tokens = 1;
+}
+
+message GetByWorkspaceRequest {
+    string workspace_id = 1;
+}
+
+message GetByWorkspaceReply {
+    repeated AccessToken tokens = 1;
+}
+
 message GetByNameRequest {
     string user_id = 1;
     string name = 2;
@@ -79,5 +98,7 @@ service AuthService {
     rpc Get(GetRequest) returns (GetReply);
     rpc GetByName(GetByNameRequest) returns (GetByNameReply);
     rpc GetByUser(GetByUserRequest) returns (GetByUserReply);
+    rpc GetByOrg(GetByOrgRequest) returns (GetByOrgReply);
+    rpc GetByWorkspace(GetByWorkspaceRequest) returns (GetByWorkspaceReply);
     rpc GetByJti(GetByJtiRequest) returns (GetByJtiReply);
 }
