@@ -9,15 +9,18 @@ message Schedule {
     string user_id = 2;
     string org_id = 3;
     string workspace_id = 4;
-    string job_id = 5;
+    string experiment_id = 5;
     string token_id = 6;
-    string status = 7;
-    float interval = 8;
-    google.protobuf.Timestamp scheduled = 9;
-    google.protobuf.Struct results = 10;
-    google.protobuf.Struct settings = 11;
-    google.protobuf.Struct configuration = 12;
-    google.protobuf.Struct secrets = 13;
+    string job_id = 7;
+    string status = 8;
+    float interval = 9;
+    google.protobuf.Timestamp created_on = 10;
+    google.protobuf.Timestamp active_from = 11;
+    google.protobuf.Timestamp active_until = 12;
+    google.protobuf.Struct results = 13;
+    google.protobuf.Struct settings = 14;
+    google.protobuf.Struct configuration = 15;
+    google.protobuf.Struct secrets = 16;
 }
 
 message GetRequest {
