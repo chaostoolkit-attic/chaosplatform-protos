@@ -6,30 +6,30 @@ import "google/protobuf/timestamp.proto";
 
 message Activity {
     string id = 1;
-    string user_id = 2;
-    string org_id = 3;
-    string workspace_id = 4;
-    string experiment_id = 5;
-    string execution_id = 6;
-    google.protobuf.Timestamp timestamp = 7;
-    string kind = 8;
-    string visibility = 9;
-    string title = 10;
-    string description = 11;
+    string authenticated_user_id = 2;
+    string access_token_id = 3;
+    string user_id = 4;
+    string org_id = 5;
+    string workspace_id = 6;
+    string experiment_id = 7;
+    string execution_id = 8;
+    google.protobuf.Timestamp timestamp = 9;
+    string event_type = 10;
+    string phase = 11;
     google.protobuf.Any payload = 12;
 }
 
 message RecordRequest {
-    string user_id = 1;
-    string org_id = 2;
-    string workspace_id = 3;
-    string experiment_id = 4;
-    string execution_id = 5;
-    google.protobuf.Timestamp timestamp = 6;
-    string kind = 7;
-    string visibility = 8;
-    string title = 9;
-    string description = 10;
+    string authenticated_user_id = 1;
+    string access_token_id = 2;
+    string user_id = 3;
+    string org_id = 4;
+    string workspace_id = 5;
+    string experiment_id = 6;
+    string execution_id = 7;
+    google.protobuf.Timestamp timestamp = 8;
+    string event_type = 9;
+    string phase = 10;
     google.protobuf.Any payload = 11;
 }
 
