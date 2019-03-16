@@ -2,7 +2,6 @@ syntax = "proto3";
 
 package chaosplatform.activity;
 import "google/protobuf/any.proto";
-import "google/protobuf/timestamp.proto";
 
 message Activity {
     string id = 1;
@@ -13,7 +12,7 @@ message Activity {
     string workspace_id = 6;
     string experiment_id = 7;
     string execution_id = 8;
-    google.protobuf.Timestamp timestamp = 9;
+    string timestamp = 9;
     string event_type = 10;
     string phase = 11;
     google.protobuf.Any payload = 12;
@@ -27,7 +26,7 @@ message RecordRequest {
     string workspace_id = 5;
     string experiment_id = 6;
     string execution_id = 7;
-    google.protobuf.Timestamp timestamp = 8;
+    string timestamp = 8;
     string event_type = 9;
     string phase = 10;
     google.protobuf.Any payload = 11;
